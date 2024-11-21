@@ -1,0 +1,3 @@
+$username = "Einstein" 
+
+Add-LocalGroupMember -Group "Remote Desktop Users" -Member $username
