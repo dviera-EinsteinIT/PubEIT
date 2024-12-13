@@ -409,7 +409,7 @@ try {
     $Position = "Fit"
     $Action = "NewWallpaper"
     $Modify = "Yes"
-    $ImageURL = "https://github.com/dviera-EinsteinIT/Images/blob/615c0fd02db015f3982c8086fd501839400c43bf/Einstein-branded-IT-wallpaperV2.png?raw=true"
+    $ImageURL = "https://www.dropbox.com/scl/fi/wuqtdortudhtoi3g7dsfg/Einstein-branded-IT-wallpaperV2.png?rlkey=6wjpsbizze3xexv6zc2ayu4lq&st=fzrsx2bb&dl=1"
   
     if(([string]::IsNullOrEmpty($Position)) -and ([string]::IsNullOrEmpty($Action))-and ([string]::IsNullOrEmpty($Modify))){
         
