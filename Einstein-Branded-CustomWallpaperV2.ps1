@@ -406,10 +406,10 @@ try {
     $ReturnValue = $ERROR_FAILED
     $IsTile = "0"
     
-    $Position = "Fill"
+    $Position = "Fit"
     $Action = "NewWallpaper"
     $Modify = "Yes"
-    $ImageURL = "https://github.com/murtaza7869/Deploy/raw/master/Einstein-branded-wallpaper3.png"
+    $ImageURL = "https://www.dropbox.com/scl/fi/wuqtdortudhtoi3g7dsfg/Einstein-branded-IT-wallpaperV2.png?rlkey=6wjpsbizze3xexv6zc2ayu4lq&st=fzrsx2bb&raw=1"
   
     if(([string]::IsNullOrEmpty($Position)) -and ([string]::IsNullOrEmpty($Action))-and ([string]::IsNullOrEmpty($Modify))){
         
