@@ -1,0 +1,5 @@
+$SSID = EinsteinIOT
+$Password = 3inst3inFalk
+
+# Connect to the network
+netsh wlan connect name=$SSID ssid=$SSID key=$Password
