@@ -1,8 +1,43 @@
-$SSID = "EinsteinIOT"
-$Password = "3inst3inFalk"
-
-# Connect to the network
-netsh wlan connect name=$SSID ssid=$SSID keyMaterial=$Password
+$ProfileName = "EinsteinIOT"  # Replace with the actual SSID of the Wi-Fi network
+$Password = "3inst3inFalk"  # Replace with the Wi-Fi password
+ 
+# Create a Wi-Fi profile
+$Profile = @"
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+  <name>$ProfileName</name>
+  <SSIDConfig>
+    <SSID>
+      <name>$ProfileName</name>
+    </SSID>
+  </SSIDConfig>
+  <connectionType>ESS</connectionType>
+  <connectionMode>manual</connectionMode>
+  <MSM>
+    <security>
+      <authEncryption>
+        <authentication>WPA2PSK</authentication>
+        <encryption>AES</encryption>
+        <useOneX>false</useOneX>
+      </authEncryption>
+      <sharedKey>
+        <keyType>passPhrase</keyType>
+        <protected>false</protected>
+        <keyMaterial>$Password</keyMaterial>
+      </sharedKey>
+    </security>
+  </MSM>
+</WLANProfile>
+"@
+ 
+# Export the profile to an XML file
+$Profile | Out-File -FilePath "$env:USERPROFILE\$ProfileName.xml"
+ 
+# Add the profile to the Wi-Fi interface
+netsh wlan add profile filename="$env:USERPROFILE\$ProfileName.xml"
+ 
+# Connect to the Wi-Fi network
+netsh wlan connect name="$ProfileName"
 
 # Set the Wi-Fi network to auto-connect
-netsh wlan set profileparameter name=$ssid connectionmode=auto
+netsh wlan set profileparameter name=$ProfileName connectionmode=auto
