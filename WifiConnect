@@ -2,7 +2,7 @@ $SSID = "EinsteinIOT"
 $Password = "3inst3inFalk"
 
 # Connect to the network
-netsh wlan connect name=$SSID ssid=$SSID key=$Password
+netsh wlan connect name=$SSID ssid=$SSID keyMaterial=$Password
 
 # Set the Wi-Fi network to auto-connect
 netsh wlan set profileparameter name=$ssid connectionmode=auto
