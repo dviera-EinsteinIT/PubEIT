@@ -5,8 +5,3 @@ $allowedSSIDs = @("EinsteinSecure", "EinsteinMed", "EinsteinVisitors", "Einstein
 foreach ($ssid in $allowedSSIDs) {
     netsh wlan add filter permission=allow ssid="$ssid" networktype=infrastructure
 }
-
-# Block all SSIDs except allowed ones
-foreach ($ssid in $allowedSSIDs) {
-    netsh wlan add filter permission=allow ssid="$ssid" networktype=infrastructure
-}
