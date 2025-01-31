@@ -1,6 +1,22 @@
 # Specify the allowed SSIDs
 $allowedSSIDs = @("EinsteinSecure", "EinsteinMed", "EinsteinVisitors", "EinsteinIOT")
 
+
+# Get all existing WLAN profiles
+$profiles = (netsh wlan show profiles) -match "All User Profile\s*:\s*(.*)" | ForEach-Object { $_.Matches[1].Value }
+
+# Delete all profiles except allowed ones
+foreach ($profile in $profiles) {
+    if ($allowedSSIDs -notcontains $profile) {
+        netsh wlan delete profile name="$profile"
+    }
+}
+
+# Block all SSIDs except allowed ones
+foreach ($ssid in $allowedSSIDs) {
+    netsh wlan add filter permission=allow ssid="$ssid" networktype=infrastructure
+}
+
 # Block all SSIDs except allowed ones
 foreach ($ssid in $allowedSSIDs) {
     netsh wlan add filter permission=allow ssid="$ssid" networktype=infrastructure
