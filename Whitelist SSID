@@ -1,0 +1,8 @@
+# Whitelist SSID
+netsh wlan add filter permission=allow ssid="EinsteinSecure" networktype=infrastructure
+netsh wlan add filter permission=allow ssid="EinsteinMed" networktype=infrastructure
+netsh wlan add filter permission=allow ssid="EinsteinVisitors" networktype=infrastructure
+netsh wlan add filter permission=allow ssid="EinsteinIOT" networktype=infrastructure
+
+# Blacklist all others
+netsh wlan add filter permission=denyall networktype=infrastructure
