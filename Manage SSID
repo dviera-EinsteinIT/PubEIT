@@ -1,0 +1,2 @@
+# Specify the allowed SSIDs
+$allowedSSIDs = @("EinsteinSecure", "EinsteinMed", "EinsteinVisitors", "EinsteinIOT")
