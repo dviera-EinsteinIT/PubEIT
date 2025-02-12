@@ -1,0 +1,1 @@
+schtasks /Create /RU System /SC DAILY /mo 1 /tn DailyRestart /st 01:00 /tr 'shutdown /r'
