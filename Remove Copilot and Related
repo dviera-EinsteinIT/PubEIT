@@ -1,0 +1,7 @@
+# Remove Windows features using Dism command
+Remove-WindowsFeature -Name "Windows-Administrative-Tools", "Backup-Windows", "Windows-PowerShell", "Windows-Security-Center", "Windows-System", "Windows-Accessories" 
+
+# Check if Microsoft Copilot is installed and remove if found 
+if ((Get-AppxPackage -Name "Microsoft.Copilot" -AllUsers)) {
+    Remove-AppxPackage -Name "Microsoft.Copilot" -AllUsers
+} 
