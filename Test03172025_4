@@ -1,0 +1,1 @@
+Get-AppxPackage -User "Einstein" *Windows PowerShell* | Remove-AppxPackage -User "Einstein"
