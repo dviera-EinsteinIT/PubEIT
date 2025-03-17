@@ -1,0 +1,1 @@
+Get-AppxPackage -User "Einstein" *WindowsBackup* | Remove-AppxPackage -User "Einstein"
