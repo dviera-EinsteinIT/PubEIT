@@ -385,16 +385,25 @@ function DownloadWallpaper {
 }
 
 function GetWallpaperStyle {
+    param(
+        [string]$Position
+    )
 
-    $Style = ""
-	if (IsOsWin8.1orGreather) {
-		$Style = "3"
-	}
-	else {
-		$Style = "6"
-	}
-    return $Style
+    $style = "10"       # Default to Fill
+    $tile = "0"
+
+    switch ($Position.ToLower()) {
+        "fill"     { $style = "10"; $tile = "0" }
+        "fit"      { $style = "6";  $tile = "0" }
+        "stretch"  { $style = "2";  $tile = "0" }
+        "tile"     { $style = "0";  $tile = "1" }
+        "center"   { $style = "0";  $tile = "0" }
+        default    { $style = "10"; $tile = "0" }
+    }
+
+    return @($style, $tile)
 }
+
 
 try {
     Push-Location $ScriptRoot
@@ -425,10 +434,10 @@ try {
             $DownloadPath = ""
         }
      
-        $Style = GetWallpaperStyle
-        if($Position -ieq "Tile"){
-                $IsTile = "1"
-        }
+        $styleAndTile = GetWallpaperStyle -Position $Position
+$Style = $styleAndTile[0]
+$IsTile = $styleAndTile[1]
+
         
 		# Essentially, Windows tends to not refresh its cached images. So, delete them first! 
 		Log -logstring "Going to clear Windows cached images first!"
