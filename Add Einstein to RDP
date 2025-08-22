@@ -1,0 +1,8 @@
+# Define the local user account to add
+$UserName = "Einstein" 
+
+# Add the user to the "Remote Desktop Users" group
+Add-LocalGroupMember -Group "Remote Desktop Users" -Member $UserName
+
+# Optional: Display a confirmation message
+Write-Host "User '$UserName' has been added to the 'Remote Desktop Users' group."
