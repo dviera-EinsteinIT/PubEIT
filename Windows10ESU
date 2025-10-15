@@ -1,0 +1,3 @@
+sc.exe config DiagTrack start= auto
+sc.exe start DiagTrack
+reg.exe add "HKLM\SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides" /v 4011992206 /t REG_DWORD /d 2 /f
