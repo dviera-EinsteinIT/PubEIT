@@ -1,0 +1,1 @@
+Start-Process "C:\Program Files\Microsoft Office\Office16\OSPPREARM.exe" -Verb RunAs
