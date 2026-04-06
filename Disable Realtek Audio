@@ -1,1 +1,0 @@
-Disable-PnpDevice -FriendlyName "Realtek(R) Audio" -Confirm:$false
