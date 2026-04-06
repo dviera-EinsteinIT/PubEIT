@@ -1,3 +1,0 @@
-Get-PnpDevice | Where-Object { $_.FriendlyName -like "*Realtek*" } | ForEach-Object {
-    Disable-PnpDevice -InstanceId $_.InstanceId -Confirm:$false
-}
