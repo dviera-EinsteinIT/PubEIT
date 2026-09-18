@@ -1,0 +1,5 @@
+name: Forced License Check In
+  shell: cmd
+  run: |
+    slmgr.vbs /skms vepkms01.montefiore.org:1688
+    slmgr /ato
