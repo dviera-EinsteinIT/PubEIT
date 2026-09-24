@@ -1,0 +1,2 @@
+Add-Content -Path "$env:SystemRoot\System32\drivers\etc\hosts" `
+  -Value "`r`n10.53.20.74`tvepkms01`tvepkms01.montefiore.org"
