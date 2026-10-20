@@ -1,0 +1,17 @@
+$cctk = @(
+    "${env:ProgramFiles(x86)}\Dell\Command Configure\X86_64\cctk.exe"
+    "$env:ProgramFiles\Dell\Command Configure\X86_64\cctk.exe"
+) | Where-Object { Test-Path $_ } | Select-Object -First 1
+
+if (-not $cctk) {
+    throw "Dell Command | Configure is not installed at either expected location."
+}
+
+# Enable automatic power-on after AC power returns.
+& $cctk --acpower=on
+if ($LASTEXITCODE -ne 0) {
+    throw "BIOS change failed. Dell exit code: $LASTEXITCODE"
+}
+
+# Display the resulting setting.
+& $cctk --acpower
